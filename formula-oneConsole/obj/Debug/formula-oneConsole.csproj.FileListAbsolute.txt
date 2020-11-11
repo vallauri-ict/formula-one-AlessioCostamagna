@@ -1,0 +1,9 @@
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\bin\Debug\formula-oneConsole.exe.config
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\bin\Debug\formula-oneConsole.exe
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\bin\Debug\formula-oneConsole.pdb
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\obj\Debug\formula-oneConsole.csprojResolveAssemblyReference.cache
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\obj\Debug\formula-oneConsole.csproj.CoreCompileInputs.cache
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\obj\Debug\formula-oneConsole.exe
+C:\Users\Alessio Costamagna\Desktop\formula-oneConsoleSolution\formula-oneConsole\obj\Debug\formula-oneConsole.pdb
