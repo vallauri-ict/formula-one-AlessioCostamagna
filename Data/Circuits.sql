@@ -1,0 +1,27 @@
+CREATE TABLE [dbo].[Circuits] (
+    [id]         INT           IDENTITY (1, 1) NOT NULL,
+    [name]       VARCHAR (256) NOT NULL,
+    [length]     INT           NOT NULL,
+    [nLaps]      INT           NOT NULL,
+    [extCountry] CHAR (2)      NOT NULL,
+    [recordLap]  VARCHAR (30)  DEFAULT (N'') NULL,
+    [img]        VARCHAR (512) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+SET IDENTITY_INSERT [dbo].[Circuits] ON;
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (1, N'Bahrain International Circuit – Outer Track', 3543, 87, N'BH', N'', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Sakhir_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (2, N'Intercity Istanbul Park', 5338, 58, N'TR', N'1:24.770-Juan Pablo Montoya-2005', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Turkey_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (3, N'Autodromo Enzo e Dino Ferrari', 4909, 63, N'IT', N'1:20.411-Michael Schumacher-2004', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Emilia_Romagna_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (4, N'Autódromo Internacional do Algarve', 4653, 66, N'PT', N'', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Portugal_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (5, N'Nurburing', 5148, 60, N'DE', N'1:28.139-Max Verstappen-2020', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Germany_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (6, N'Bahrain International Circuit', 5412, 57, N'BH', N'1:27.866-Charles Leclerc-2019', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Bahrain_Circuit.png.transform/9col/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (7, N'Mugello', 5245, 59, N'IT', N'1:18.833-Lewis Hamilton-2020', N'https://www.formula1.com/content/dam/fom-website/2018-redesign-assets/Circuit%20maps%2016x9/Tuscany_Circuit.png.transform/7col-retina/image.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (8, N'Circuit de Barcelona-Catalunya', 4655, 66, N'ES', N'1:18.183-Valtteri Bottas-2020', N'https://media.motorbox.com/image/f1-gp-spagna-2019-orari-meteo-risultati-prove-qualifiche-e-gara/6/3/7/637992/637992-16x9-md.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (9, N'Red Bull Ring', 4318, 71, N'AT', N'1:05.619-Carlos Sainz-2020', N'https://www.giornalemotori.com/wp-content/uploads/2018/12/austria-768x432.png');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (10, N'Autodromo Nazionale Monza', 5793, 53, N'IT', N'1:21.046-Rubens Barrichello-2004', N'https://media.motorbox.com/image/gp-italia-2019-orari-meteo-risultati/6/5/0/650614/650614-16x9-md.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (11, N'Silverstone Circuit', 5891, 52, N'GB', N'1:27.097-Max Verstappen-2020', N'https://th.autoblog.it/IMsLYkTXy168Yz4betxGaLZJP2w=/fit-in/655xorig/https%3A%2F%2Fmedia.autoblog.it%2F0%2F0fc%2Fcircuito-silverstone.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (12, N'Hungaroring', 4381, 70, N'HU', N'1:17.103-Max Verstappen-2019', N'https://media.motorbox.com/image/gp-ungheria-2019-orari-meteo-risultati/6/4/7/647020/647020-16x9-md.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (13, N'Circuit de Spa-Francorchamps', 7004, 44, N'BE', N'1:46.286-Valtteri Bottas-2018', N'https://media.motorbox.com/image/f1-2019-la-pista-di-spa-francorchamps-sede-del-gp-belgio/6/4/9/649327/649327-16x9-md.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (14, N'Sochi Autodrom', 5848, 53, N'GB', N'1:35.761-Lewis Hamilton-2019', N'https://media.motorbox.com/image/tutte-le-info-sul-gp-russia-2019-orari-meteo-risultati/6/5/2/652862/652862-16x9-md.jpg');
+INSERT INTO [dbo].[Circuits] ([id], [name], [length], [nLaps], [extCountry], [recordLap], [img]) VALUES (15, N'Yas Marina Circuit', 5554, 55, N'AE', N'1:39.283-Lewis Hamilton-2019', N'https://media.motorbox.com/image/tutte-le-info-sul-gp-abu-dhabi-2019-orari-meteo-risultati/6/6/0/660478/660478-16x9-md.jpg');
+SET IDENTITY_INSERT [dbo].[Circuits] OFF;
