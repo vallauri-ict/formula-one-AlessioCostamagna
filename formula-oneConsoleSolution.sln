@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "formula-oneConsole", "formula-oneConsole\formula-oneConsole.csproj", "{467476B4-7E69-4503-98C1-0AA2FFCBB3D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "formulaOneWebForm", "formulaOneWebForm\formulaOneWebForm.csproj", "{D46A3CB4-7B26-419D-B4A9-6EA68457191F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "formulaOneDLL", "formulaOneDLL\formulaOneDLL.csproj", "{03FCCC96-94BA-4281-8D73-0A68563BC0D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{467476B4-7E69-4503-98C1-0AA2FFCBB3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{467476B4-7E69-4503-98C1-0AA2FFCBB3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{467476B4-7E69-4503-98C1-0AA2FFCBB3D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46A3CB4-7B26-419D-B4A9-6EA68457191F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46A3CB4-7B26-419D-B4A9-6EA68457191F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46A3CB4-7B26-419D-B4A9-6EA68457191F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46A3CB4-7B26-419D-B4A9-6EA68457191F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FCCC96-94BA-4281-8D73-0A68563BC0D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FCCC96-94BA-4281-8D73-0A68563BC0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FCCC96-94BA-4281-8D73-0A68563BC0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FCCC96-94BA-4281-8D73-0A68563BC0D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

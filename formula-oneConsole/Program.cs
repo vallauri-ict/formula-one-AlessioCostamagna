@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.IO;
+using formulaOneDLL;
 
 namespace formula_oneConsole
 {
     class Program
     {
-        public const string WORKINGPATH = @"C:\data\formulaone\";
-        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + WORKINGPATH + @"formula-one.mdf;Integrated Security=True";
+        private static dbTools db = new dbTools();
+
         static void Main(string[] args)
         {
             Console.WriteLine("*** FORMULA ONE - BATCH OPERATION ***");
@@ -23,6 +24,10 @@ namespace formula_oneConsole
                 Console.WriteLine("1 - Create Countries");
                 Console.WriteLine("2 - Create Teams");
                 Console.WriteLine("3 - Create Drivers");
+                Console.WriteLine("4 - Create Circuits");
+                Console.WriteLine("5 - Create Races");
+                Console.WriteLine("6 - Create RacesScores");
+                Console.WriteLine("7 - Create Scores");
                 Console.WriteLine("------------------");
                 Console.WriteLine("R - Reset");
                 Console.WriteLine("------------------");
@@ -39,19 +44,46 @@ namespace formula_oneConsole
                     case '3':
                         callExecuteSqlScript("Drivers");
                         break;
+                    case '4':
+                        callExecuteSqlScript("Circuits");
+                        break;
+                    case '5':
+                        callExecuteSqlScript("Races");
+                        break;
+                    case '6':
+                        callExecuteSqlScript("RacesScores");
+                        break;
+                    case '7':
+                        callExecuteSqlScript("Scores");
+                        break;
                     case 'R':
-                        DBBackup();
-                        bool ok = callDropTable("Country");
-                        //if(ok) ok = callDropTable("Team")
-
-                        if (ok) ok = callExecuteSqlScript("Countries");
-                        if(ok)
+                        db.DBBackup();
+                        bool OK;
+                        //System.IO.File.Copy(DbTools.WORKINGPATH + "FormulaOne.mdf", DbTools.WORKINGPATH + "Backup.mdf");
+                        OK = callDropTable("Races_Scores");
+                        if (OK) OK = callDropTable("Scores");
+                        if (OK) OK = callDropTable("Races");
+                        if (OK) OK = callDropTable("Circuits");
+                        if (OK) OK = callDropTable("Teams");
+                        if (OK) OK = callDropTable("Drivers");
+                        if (OK) OK = callDropTable("Countries");
+                        if (OK) OK = callExecuteSqlScript("Countries");
+                        if (OK) OK = callExecuteSqlScript("Drivers");
+                        if (OK) OK = callExecuteSqlScript("Teams");
+                        if (OK) OK = callExecuteSqlScript("Circuits");
+                        if (OK) OK = callExecuteSqlScript("Races");
+                        if (OK) OK = callExecuteSqlScript("Scores");
+                        if (OK) OK = callExecuteSqlScript("RacesScores");
+                        if (OK) OK = callExecuteSqlScript("SetConstraints");
+                        if (OK)
                         {
-                            Console.WriteLine("Reset okay");
+                            //System.IO.File.Delete(DbTools.WORKINGPATH + "Backup.mdf");
+                            Console.WriteLine("OK");
                         }
                         else
                         {
-                            DBRestore();
+                            //System.IO.File.Copy(DbTools.WORKINGPATH + "Backup.mdf", DbTools.WORKINGPATH + "FormulaOne.mdf", true);
+                            //System.IO.File.Delete(DbTools.WORKINGPATH + "Backup.mdf");
                         }
                         break;
                     default:
@@ -64,7 +96,7 @@ namespace formula_oneConsole
         {
             try
             {
-                ExecuteSqlScript(scriptName + ".sql");
+                db.ExecuteSqlScript(scriptName + ".sql");
                 Console.WriteLine("\nCreate " + scriptName + " - SUCCESS\n");
                 return true;
             }
@@ -74,54 +106,12 @@ namespace formula_oneConsole
                 return false;
             }
         }
-
-        public static void ExecuteSqlScript(string sqlScriptName)
-        {
-            var fileContent = File.ReadAllText(WORKINGPATH + sqlScriptName);
-            fileContent = fileContent.Replace("\r\n", "");
-            fileContent = fileContent.Replace("\r", "");
-            fileContent = fileContent.Replace("\n", "");
-            fileContent = fileContent.Replace("\t", "");
-            var sqlqueries = fileContent.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-
-            var con = new SqlConnection(CONNECTION_STRING);
-            var cmd = new SqlCommand("query", con);
-            con.Open(); int i = 0;
-            foreach (var query in sqlqueries)
-            {
-                cmd.CommandText = query; i++;
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException err)
-                {
-                    Console.WriteLine("Errore in esecuzione della query numero: " + i);
-                    Console.WriteLine("\tErrore SQL: " + err.Number + " - " + err.Message);
-                }
-            }
-            con.Close();
-        }
-        public static void DropTable(string tableName)
-        {
-            var con = new SqlConnection(CONNECTION_STRING);
-            var cmd = new SqlCommand("Drop Table " + tableName + ";", con);
-            con.Open();
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException err)
-            {
-                Console.WriteLine("\tErrore SQL: " + err.Number + " - " + err.Message);
-            }
-            con.Close();
-        }
+        
         static bool callDropTable(string tableName)
         {
             try
             {
-                DropTable(tableName);
+                db.DropTable(tableName);
                 Console.WriteLine("\nDROP " + tableName + " - SUCCESS\n");
                 return true;
             }
@@ -131,85 +121,7 @@ namespace formula_oneConsole
                 return false;
             }
         }
-        public static void DBBackup()
-        {
-            try
-            {
-                using (SqlConnection dbConn = new SqlConnection())
-                {
-                    dbConn.ConnectionString = CONNECTION_STRING;
-                    dbConn.Open();
-
-                    using (SqlCommand multiuser_rollback_dbcomm = new SqlCommand())
-                    {
-                        multiuser_rollback_dbcomm.Connection = dbConn;
-                        multiuser_rollback_dbcomm.CommandText = @"ALTER DATABASE [" + WORKINGPATH + "formula-one.mdf] SET MULTI_USER WITH ROLLBACK IMMEDIATE";
-
-                        multiuser_rollback_dbcomm.ExecuteNonQuery();
-                    }
-                    dbConn.Close();
-                }
-
-                SqlConnection.ClearAllPools();
-
-                using (SqlConnection backupConn = new SqlConnection())
-                {
-                    backupConn.ConnectionString = CONNECTION_STRING;
-                    backupConn.Open();
-
-                    using (SqlCommand backupcomm = new SqlCommand())
-                    {
-                        File.Delete(WORKINGPATH + "FormulaOne_Backup.bak");
-                        backupcomm.Connection = backupConn;
-                        backupcomm.CommandText = @"BACKUP DATABASE [" + WORKINGPATH + "formula-one.mdf] TO DISK='" + WORKINGPATH + @"FormulaOne_Backup.bak'";
-                        backupcomm.ExecuteNonQuery();
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Backup database Success");
-                    }
-                    backupConn.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Backup database Failed");
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-        public static void DBRestore()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(CONNECTION_STRING))
-                {
-                    con.Open();
-                    string sqlStmt2 = string.Format(@"ALTER DATABASE [" + WORKINGPATH + "formula-one.mdf] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
-                    SqlCommand bu2 = new SqlCommand(sqlStmt2, con);
-                    bu2.ExecuteNonQuery();
-
-                    string sqlStmt3 = @"USE MASTER RESTORE DATABASE [" + WORKINGPATH + "formula-one.mdf] FROM DISK='" + WORKINGPATH + @"FormulaOne_Backup.bak' WITH REPLACE;";
-                    SqlCommand bu3 = new SqlCommand(sqlStmt3, con);
-                    bu3.ExecuteNonQuery();
-
-                    string sqlStmt4 = string.Format(@"ALTER DATABASE [" + WORKINGPATH + "formula-one.mdf] SET MULTI_USER");
-                    SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
-                    bu4.ExecuteNonQuery();
-
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Restore database Success");
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Restore database Failed");
-                Console.WriteLine(ex.ToString());
-            }
-        }
+        
 
     }
 }

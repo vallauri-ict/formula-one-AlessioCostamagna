@@ -52,5 +52,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\formulaOneDLL\formulaOneDLL.csproj">
+      <Project>{03fccc96-94ba-4281-8d73-0a68563bc0d6}</Project>
+      <Name>formulaOneDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
