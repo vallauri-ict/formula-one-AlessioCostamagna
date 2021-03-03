@@ -74,6 +74,18 @@ namespace formulaOneDLL
             return t;
         }
 
+        public DataTable GetTableByQuery(string query) {
+            DataTable t = new DataTable();
+            var con = new SqlConnection(CONNECTION_STRING);
+            using (con) {
+                con.Open();
+                var command = new SqlCommand(query, con);
+                SqlDataAdapter sda = new SqlDataAdapter(command);
+                sda.Fill(t);
+            }
+            return t;
+        }
+
         public string[] getTableName()
         {
             string[] nameTable = new string[0];
