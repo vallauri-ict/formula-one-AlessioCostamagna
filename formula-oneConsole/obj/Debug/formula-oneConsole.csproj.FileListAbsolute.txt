@@ -18,3 +18,15 @@ C:\Users\Alessio Costamagna\Documents\GitHub\formula-one-AlessioCostamagna\formu
 C:\Users\Alessio Costamagna\Documents\GitHub\formula-one-AlessioCostamagna\formula-oneConsole\obj\Debug\formula-oneConsole.pdb
 C:\Users\Alessio Costamagna\Documents\GitHub\formula-one-AlessioCostamagna\formula-oneConsole\bin\Debug\formulaOneDLL.dll
 C:\Users\Alessio Costamagna\Documents\GitHub\formula-one-AlessioCostamagna\formula-oneConsole\bin\Debug\formulaOneDLL.pdb
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\formula-oneConsole.exe.config
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\formula-oneConsole.exe
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\formula-oneConsole.pdb
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\formulaOneDLL.dll
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\formulaOneDLL.pdb
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\obj\Debug\formula-oneConsole.csprojAssemblyReference.cache
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\obj\Debug\formula-oneConsole.csproj.CoreCompileInputs.cache
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\obj\Debug\formula-oneConsole.csproj.CopyComplete
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\obj\Debug\formula-oneConsole.exe
+C:\Users\Deepak\Downloads\formula-one-AlessioCostamagna-master\formula-oneConsole\obj\Debug\formula-oneConsole.pdb

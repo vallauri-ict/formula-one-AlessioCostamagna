@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbTools.cs" />
+    <Compile Include="dto\circuitCard.cs" />
     <Compile Include="dto\driverCard.cs" />
+    <Compile Include="dto\teamCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
