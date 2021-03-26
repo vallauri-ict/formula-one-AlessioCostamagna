@@ -24,11 +24,11 @@ namespace formulaOneWebServices.Controllers
         {
         List<circuitCard> list = new List<circuitCard>();
             // FARE CHIAMATA A DB (Tramite GetTableByQuery)
-            var table = tools.GetTableByQuery("SELECT r.date,c.CountryCode,c.CountryCode,r.name,ci.img FROM Races r, Country c, Circuits ci WHERE r.extCircuit=ci.id and ci.extCountry=c.CountryCode;");
+            var table = tools.GetTableByQuery("SELECT r.date,c.CountryCode,c.CountryName,r.name,ci.img FROM Races r, Country c, Circuits ci WHERE r.extCircuit=ci.id and ci.extCountry=c.CountryCode;");
             foreach (DataRow row in table.Rows)
             {
                 list.Add(new circuitCard(
-                        row.Field<string>("date"),
+                        row.Field<DateTime>("date"),
                         row.Field<string>("CountryCode"),
                         row.Field<string>("CountryName"),
                         row.Field<string>("name"),

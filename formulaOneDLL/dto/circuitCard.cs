@@ -8,13 +8,13 @@ namespace formulaOneDLL.dto
 {
     public class circuitCard
     {
-        private string date;
+        private DateTime date;
         private string codNaz;
         private string nameNaz;
         private string nameGranP;
         private string imgCircuit;
 
-        public circuitCard(string date, string codNaz, string nameNaz, string nameGranP, string imgCircuit)
+        public circuitCard(DateTime date, string codNaz, string nameNaz, string nameGranP, string imgCircuit)
         {
             Date = date;
             ImgNaz = codNaz;
@@ -23,7 +23,7 @@ namespace formulaOneDLL.dto
             ImgCircuit = imgCircuit;
         }
 
-        public string Date { get => date; set => date = value; }
+        public DateTime Date { get => date; set => date = value; }
         public string ImgNaz { get => codNaz; set => codNaz = value; }
         public string NameNaz { get => nameNaz; set => nameNaz = value; }
         public string NameGranP { get => nameGranP; set => nameGranP = value; }
