@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\formulaOneDLL\formulaOneDLL.csproj" />
-    <ProjectReference Include="..\FormulaOneWebCore\FormulaOneWebCore.csproj" />
   </ItemGroup>
 
 </Project>

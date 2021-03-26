@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace formulaOneWebServices.Controllers
 {
-    [Route("api/teams")]
+    [Route("api/circuit")]
     [ApiController]
-    public class teamController : ControllerBase
+    public class circuitController : ControllerBase
     {
         dbTools tools = new dbTools();
 
@@ -20,20 +20,19 @@ namespace formulaOneWebServices.Controllers
         [HttpGet("all")]
         [HttpGet("card")]
         [HttpGet("cards")]
-        public IEnumerable<teamCard> Get()
+        public IEnumerable<circuitCard> Get()
         {
-            List<teamCard> list = new List<teamCard>();
+        List<circuitCard> list = new List<circuitCard>();
             // FARE CHIAMATA A DB (Tramite GetTableByQuery)
-            var table = tools.GetTableByQuery("SELECT t.id,t.name,t.logo,t.img,d.firstname, d.lastname FROM Drivers d,Teams t WHERE (t.extFirstDriver=d.id OR t.extSecondDriver=d.id);");
+            var table = tools.GetTableByQuery("SELECT r.date,c.CountryCode,c.CountryCode,r.name,ci.img FROM Races r, Country c, Circuits ci WHERE r.extCircuit=ci.id and ci.extCountry=c.CountryCode;");
             foreach (DataRow row in table.Rows)
             {
-                list.Add(new teamCard(
-                        row.Field<int>("id"),
+                list.Add(new circuitCard(
+                        row.Field<string>("date"),
+                        row.Field<string>("CountryCode"),
+                        row.Field<string>("CountryName"),
                         row.Field<string>("name"),
-                        row.Field<string>("logo"),
-                        row.Field<string>("img"),
-                        row.Field<string>("firstname"),
-                        row.Field<string>("lastname")
+                        row.Field<string>("img")
                     ));
             }
             return list;

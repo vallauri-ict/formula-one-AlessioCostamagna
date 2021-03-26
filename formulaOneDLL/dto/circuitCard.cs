@@ -8,13 +8,25 @@ namespace formulaOneDLL.dto
 {
     public class circuitCard
     {
-        private int _driverId;
-        private string _driverFirstName;
-        private string _driverLastName;
-        private string _teamName;
-        private string _countryCode;
-        private string _countryFlag;
-        private string _driverImage;
-        private int _teamId;
+        private string date;
+        private string codNaz;
+        private string nameNaz;
+        private string nameGranP;
+        private string imgCircuit;
+
+        public circuitCard(string date, string codNaz, string nameNaz, string nameGranP, string imgCircuit)
+        {
+            Date = date;
+            ImgNaz = codNaz;
+            NameNaz = nameNaz;
+            NameGranP = nameGranP;
+            ImgCircuit = imgCircuit;
+        }
+
+        public string Date { get => date; set => date = value; }
+        public string ImgNaz { get => codNaz; set => codNaz = value; }
+        public string NameNaz { get => nameNaz; set => nameNaz = value; }
+        public string NameGranP { get => nameGranP; set => nameGranP = value; }
+        public string ImgCircuit { get => imgCircuit; set => imgCircuit = value; }
     }
 }

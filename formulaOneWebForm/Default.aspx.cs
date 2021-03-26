@@ -33,7 +33,7 @@ namespace formulaOneWebForm
 
         
     }
-    public void getCountry(string isoCode = "")
+    /*public void getCountry(string isoCode = "")
     {
         HttpWebRequest apiRequest = WebRequest.Create("https://localhost:44308/api/Country/" + isoCode + "") as HttpWebRequest;
         string apiResponse = "";
@@ -54,5 +54,5 @@ namespace formulaOneWebForm
         {
             Console.Write(ex.Message);
         }
-    }
+    }*/
 }
